@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-int main(int argc, char const *argv[])
+int main(void)
 {
     ifstream archivo;
     archivo.open("./archive.txt");
@@ -16,11 +16,11 @@ int main(int argc, char const *argv[])
     string linea;
     
     while (getline(archivo, linea)){
-        contador++;
+        contador++;     //AUMENTAMOS EL CONTADOR A MEDIDA QUE LEEMOS LAS LINEAS DEL ARCHIVO
     }
     archivo.close();
 
-    cout<<contador<<endl;
+    cout<<"El archivo tiene "<<contador<<" lineas."<<endl;
 
     return 0;
 }

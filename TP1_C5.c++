@@ -12,10 +12,10 @@ struct Datos{
     string apellido;
 };
 
-int main(int argc, char const *argv[]){
+int main(void){
 
     ifstream archivo;
-    archivo.open("./datos.txt");
+    archivo.open("./anios.txt");
     if (!archivo.is_open()){
         cout << "No se pudo abrir el archivo" << endl;
         return 1;
@@ -25,13 +25,13 @@ int main(int argc, char const *argv[]){
     int cont=0;
     while(!archivo.eof()){
         archivo >> personas.orden >> personas.edad >> personas.nombre >> personas.apellido;
-        if (personas.edad<1995){
+        if (personas.edad<1995){    //COMPARAMOS EDAD PARA SABER SI NACIÓ ANTES DE 1995
             cont++;
         }
     }
     archivo.close();
 
-    cout<<"Hay "<<cont<<" de 1995."<<endl;
+    cout<<"Hay "<<cont<<" nacidos antes de 1995."<<endl;
 
     return 0;
 }

@@ -44,7 +44,6 @@ int main(void){
 	}
 	archivo.close();
 
-    
     string caracter_nuevo_str;
     caracter_nuevo_str.push_back(caracter_nuevo);   //CONVERTIMOS DE TIPO CARACTER A STRING PARA LA FUNCION .REPLACE 
 

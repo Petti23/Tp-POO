@@ -6,7 +6,7 @@
 #include <cctype>
 using namespace std;
 
-void minusculas(string &texto){
+void minusculas(string &texto){		//FUNCION PARA CONVERTIR TEXTO A MINUSCULAS, PARA EVITAR ERRORES CON EL USUARIO
 	for(unsigned int i=0; i<texto.length();i++){
 		texto[i] = tolower(texto[i]);
 	}
@@ -19,14 +19,16 @@ string definicion(string palabra){
 	}
 	
 	string linea,aux;
-	getline(archivo,aux,':');
-	archivo.ignore();
-	minusculas(aux);
+	getline(archivo,aux,':');	
+	archivo.ignore();		//IGNORAMOS EL ESPACIO LUEGO DE LOS 2 PUNTOS ':'
+
+	minusculas(aux);		//LLAMAMOS LA FUNCION MINUSCULAS
+
 	while(getline(archivo,linea)){
-		if (aux==palabra){
-			return linea;
+		if (aux==palabra){		//BUSCAMOS LA PALABRA QUE INGRESA EL USUARIO EN EL ARCHIVO
+			return linea;		//SI LA ENCUENTRA DEVUELVE EL SIGNIFICADO
 		}
-		getline(archivo,aux,':');
+		getline(archivo,aux,':');	//SI NO LA ENCUENTRA SIGUE BUSCANDO Y REPETIMOS PROCESO
 		minusculas(aux);
 		archivo.ignore();
 	}
@@ -34,10 +36,10 @@ string definicion(string palabra){
 	return "palabra no encontrada.";
 }
  	
-int main(int argc, char const *argv[]){
+int main(void){
 			
 	string palabra,significado;
-	getline(cin,palabra);
+	getline(cin,palabra);		//PEDIMOS LA PALABRA PARA BUSCAR EL SIGNIFICADO
 	
 	significado = definicion(palabra);
 		
